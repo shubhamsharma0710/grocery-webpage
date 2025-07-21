@@ -1,0 +1,65 @@
+# Query: stroke-linejoin
+# ContextLines: 1
+
+16 results - 9 files
+
+client\src\assets\arrow_right_icon_colored.svg:
+  1  <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+  2: <path d="M14.0909 5.5H1" stroke="#4FBF8B" stroke-width="1.5" stroke-linecap="round" strokeLinejoin="round"/>
+  3: <path d="M6.14286 10L1 5.5L6.14286 1" stroke="#4FBF8B" stroke-width="1.5" stroke-linecap="round" strokeLinejoin="round"/>
+  4  </svg>
+
+client\src\assets\black_arrow_icon.svg:
+  1  <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+  2: <path d="M1.00089 5.87109L14.0918 5.87109" stroke="#2B3441" stroke-width="1.5" stroke-linecap="round" strokeLinejoin="round"/>
+  3: <path d="M8.94894 1.00036L14.0918 5.87078L8.94894 10.7412" stroke="#2B3441" stroke-width="1.5" stroke-linecap="round" strokeLinejoin="round"/>
+  4  </svg>
+
+client\src\assets\cart_icon.svg:
+  2  <g clip-path="url(#clip0_3333_269)">
+  3: ⟪ 521 characters skipped ⟫33 11.6663 12.833C11.3442 12.833 11.083 12.5718 11.083 12.2497C11.083 11.9275 11.3442 11.6663 11.6663 11.6663C11.9885 11.6663 12.2497 11.9275 12.2497 12.2497Z" stroke="#4FBF8B" stroke-linecap="round" strokeLinejoin="round"/>
+  4  </g>
+
+client\src\assets\product_list_icon.svg:
+  1  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+  2: <path d="M15.1665 17.3333L17.4415 20.0417L21.6665 14.625" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" strokeLinejoin="round"/>
+  3  <path d="M10.8333 15.167H3.25" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+
+client\src\assets\refresh_icon.svg:
+  2  <rect width="37" height="37" rx="18.5" fill="#4FBF8B"/>
+  3: <path d="M11.3047 19.014C11.3047 23.2712 14.7558 26.7223 19.013 26.7223C20.9873 26.7223 22.7881 25.9801 24.1519 24.7595L26.7214 22.4399M26.7214 22.4399V26.7223M26.7214 22.4399H22.4389M26.7214 19.014C26.7214 14.7568 23.2702 11.3057 19.013 11.3057C17.0388 11.3057 15.2379 12.0479 13.8741 13.2684L11.3047 15.5881M11.3047 15.5881V11.3057M11.3047 15.5881H15.5871" stroke="white" stroke-width="2" stroke-linecap="round" strokeLinejoin="round"/>
+  4  </svg>
+
+client\src\assets\remove_icon.svg:
+  2  <g clip-path="url(#clip0_3523_924)">
+  3: <path d="M12.4993 7.50033L7.49935 12.5003M7.49935 7.50033L12.4993 12.5003M18.3327 10.0003C18.3327 14.6027 14.6017 18.3337 9.99935 18.3337C5.39698 18.3337 1.66602 14.6027 1.66602 10.0003C1.66602 5.39795 5.39698 1.66699 9.99935 1.66699C14.6017 1.66699 18.3327 5.39795 18.3327 10.0003Z" stroke="#FF532E" stroke-width="1.5" stroke-linecap="round" strokeLinejoin="round"/>
+  4  </g>
+
+client\src\assets\search_icon.svg:
+  1  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  2: <path d="M10.8359 10.6152L14.9999 14.6949" stroke="#7A7B7D" stroke-width="1.2" stroke-linecap="round" strokeLinejoin="round"/>
+  3: <path fill-rule="evenodd" clip-rule="evenodd" d="M9.14099 11.7381C11.8699 10.6019 13.142 7.51376 11.9822 4.84043C10.8224 2.1671 7.67004 0.920959 4.94113 2.0571C2.21222 3.19324 0.940171 6.28142 2.09993 8.95475C3.25969 11.6281 6.41208 12.8742 9.14099 11.7381Z" stroke="#7A7B7D" stroke-width="1.2" stroke-linecap="round" strokeLinejoin="round"/>
+  4  </svg>
+
+client\src\assets\white_arrow_icon.svg:
+  1  <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+  2: <path d="M1.64151 5.76562L14.7324 5.76562" stroke="white" stroke-width="1.5" stroke-linecap="round" strokeLinejoin="round"/>
+  3: <path d="M9.58956 0.894889L14.7324 5.76532L9.58956 10.6357" stroke="white" stroke-width="1.5" stroke-linecap="round" strokeLinejoin="round"/>
+  4  </svg>
+
+client\src\components\Navbar.jsx:
+   68                stroke-linecap="round"
+   69:               strokeLinejoin="round"
+   70              />
+
+   76                stroke-linecap="round"
+   77:               strokeLinejoin="round"
+   78              />
+
+   96                stroke-linecap="round"
+   97:               strokeLinejoin="round"
+   98              />
+
+  147                stroke-linecap="round"
+  148:               strokeLinejoin="round"
+  149              />
