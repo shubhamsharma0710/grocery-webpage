@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useAppContext } from "../context/appContext.jsx";
-import { dummyAddress } from "../assets/assets.js";
-import axios from "axios";
+import { dummyAddress, imageMap } from "../assets/assets.js";
 import toast from "react-hot-toast";
+
 const Cart = () => {
   const {
     products,
@@ -17,12 +17,9 @@ const Cart = () => {
     user,
   } = useAppContext();
 
-  // state to store the products available in cart
   const [cartArray, setCartArray] = useState([]);
-  // state to address
   const [address, setAddress] = useState([]);
   const [showAddress, setShowAddress] = useState(false);
-  // state for selected address
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentOption, setPaymentOption] = useState("COD");
 
@@ -30,8 +27,10 @@ const Cart = () => {
     let tempArray = [];
     for (const key in cartItems) {
       const product = products.find((product) => product._id === key);
-      product.quantity = cartItems[key];
-      tempArray.push(product);
+      if (product) {
+        product.quantity = cartItems[key];
+        tempArray.push(product);
+      }
     }
     setCartArray(tempArray);
   };
@@ -51,23 +50,18 @@ const Cart = () => {
       toast.error(error.message);
     }
   };
+
   useEffect(() => {
-    if (user) {
-      getAddress();
-    }
+    if (user) getAddress();
   }, [user]);
 
   useEffect(() => {
-    if (products.length > 0 && cartItems) {
-      getCart();
-    }
+    if (products.length > 0 && cartItems) getCart();
   }, [products, cartItems]);
+
   const placeOrder = async () => {
     try {
-      if (!selectedAddress) {
-        return toast.error("Please select an address");
-      }
-      // place order with cod
+      if (!selectedAddress) return toast.error("Please select an address");
       if (paymentOption === "COD") {
         const { data } = await axios.post("/api/order/cod", {
           items: cartArray.map((item) => ({
@@ -76,6 +70,7 @@ const Cart = () => {
           })),
           address: selectedAddress._id,
         });
+
         if (data.success) {
           toast.success(data.message);
           setCartItems({});
@@ -88,6 +83,12 @@ const Cart = () => {
       toast.error(error.message);
     }
   };
+
+  const resolveImage = (imagePath) => {
+    const key = imagePath?.split("/").pop()?.split(".")[0];
+    return imageMap[key];
+  };
+
   return products.length > 0 && cartItems ? (
     <div className="flex flex-col md:flex-row py-16 max-w-6xl w-full px-6 mx-auto">
       <div className="flex-1 max-w-4xl">
@@ -113,11 +114,11 @@ const Cart = () => {
                   navigate(`product/${product.category}/${product._id}`);
                   scrollTo(0, 0);
                 }}
-                className="cursor-pointer w-24 h-24 flex items-center justify-center border border-gray-300 rounded cusror-pointer"
+                className="cursor-pointer w-24 h-24 flex items-center justify-center border border-gray-300 rounded"
               >
                 <img
                   className="max-w-full h-full object-cover"
-                  src={`http://localhost:5000/images/${product.image[0]}`}
+                  src={resolveImage(product.image[0])}
                   alt={product.name}
                 />
               </div>
@@ -140,9 +141,9 @@ const Cart = () => {
                         cartItems[product._id] > 9 ? cartItems[product._id] : 9
                       )
                         .fill("")
-                        .map((_, index) => (
-                          <option key={index} value={index + 1}>
-                            {index + 1}
+                        .map((_, i) => (
+                          <option key={i} value={i + 1}>
+                            {i + 1}
                           </option>
                         ))}
                     </select>
@@ -150,9 +151,11 @@ const Cart = () => {
                 </div>
               </div>
             </div>
+
             <p className="text-center">
               ${product.offerPrice * product.quantity}
             </p>
+
             <button
               onClick={() => removeFromCart(product._id)}
               className="cursor-pointer mx-auto"
@@ -198,8 +201,9 @@ const Cart = () => {
           Continue Shopping
         </button>
       </div>
+
       <div className="max-w-[360px] w-full bg-gray-100/40 p-5 max-md:mt-16 border border-gray-300/70">
-        <h2 className="text-xl md:text-xl font-medium">Order Summary</h2>
+        <h2 className="text-xl font-medium">Order Summary</h2>
         <hr className="border-gray-300 my-5" />
         <div className="mb-6">
           <p className="text-sm font-medium uppercase">Delivery Address</p>
@@ -215,19 +219,19 @@ const Cart = () => {
             >
               Change
             </button>
+
             {showAddress && (
-              <div className="absolute top-12 py-1 bg-white border border-gray-300 text-sm w-full">
-                {address.map((address, index) => (
+              <div className="absolute top-12 py-1 bg-white border border-gray-300 text-sm w-full z-10">
+                {address.map((addr, i) => (
                   <p
-                    key={index}
+                    key={i}
                     onClick={() => {
-                      setSelectedAddress(address);
+                      setSelectedAddress(addr);
                       setShowAddress(false);
                     }}
-                    className="text-gray-500 p-2 hover:bg-gray-100"
+                    className="text-gray-500 p-2 hover:bg-gray-100 cursor-pointer"
                   >
-                    {address.street}, {address.city}, {address.state},{" "}
-                    {address.country},
+                    {addr.street}, {addr.city}, {addr.state}, {addr.country}
                   </p>
                 ))}
                 <p
@@ -241,7 +245,6 @@ const Cart = () => {
           </div>
 
           <p className="text-sm font-medium uppercase mt-6">Payment Method</p>
-
           <select
             onChange={(e) => setPaymentOption(e.target.value)}
             className="w-full border border-gray-300 bg-white px-3 py-2 mt-2 outline-none"
@@ -282,4 +285,5 @@ const Cart = () => {
     </div>
   ) : null;
 };
+
 export default Cart;

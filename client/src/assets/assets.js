@@ -69,6 +69,48 @@ import vanilla_muffins_image from "./vanilla_muffins_image.png";
 import quinoa_image from "./quinoa_image.png";
 import brown_rice_image from "./brown_rice_image.png";
 import barley_image from "./barley_image.png";
+// assets.js (at the bottom, before or after assets/categories export)
+
+export const imageMap = {
+  potato_image_1,
+  potato_image_2,
+  potato_image_3,
+  potato_image_4,
+  tomato_image,
+  carrot_image,
+  apple_image,
+  amul_milk_image,
+  coca_cola_image,
+  brown_bread_image,
+  basmati_rice_image,
+  paneer_image,
+  orange_image,
+  pepsi_image,
+  wheat_flour_image,
+  cheese_image,
+  eggs_image,
+  spinach_image_1,
+  onion_image_1,
+  banana_image_1,
+  mango_image_1,
+  grapes_image_1,
+  paneer_image_2,
+  sprite_image_1,
+  fanta_image_1,
+  seven_up_image_1,
+  top_ramen_image,
+  knorr_soup_image,
+  yippee_image,
+  maggi_oats_image,
+  butter_croissant_image,
+  chocolate_cake_image,
+  whole_wheat_bread_image,
+  vanilla_muffins_image,
+  quinoa_image,
+  brown_rice_image,
+  barley_image,
+};
+
 
 export const assets = {
   logo,
